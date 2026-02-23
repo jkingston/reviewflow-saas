@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewFlow - Get More Reviews with One Simple QR Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .gradient-text { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hover-lift { transition: transform 0.2s ease; }
+        .hover-lift:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-qrcode text-2xl text-purple-600 mr-2"></i>
+                        <span class="text-xl font-bold gradient-text">ReviewFlow</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <a href="#pricing" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Pricing</a>
+                    <a href="#features" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Features</a>
+                    <button id="waitlist-btn" class="ml-4 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
+                        Join Waitlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    Get More Reviews.<br>
+                    <span class="text-yellow-300">One QR Code.</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-10 text-purple-100 max-w-3xl mx-auto">
+                    Stop confusing customers with multiple review links. One QR code shows all platforms, increases reviews by 300%, and turns unhappy customers into private feedback.
+                </p>
+                <div class="max-w-md mx-auto">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" id="email-input" placeholder="Your business email" class="flex-grow px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <button id="join-btn" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-6 py-3 rounded-lg transition duration-150 ease-in-out">
+                            Join Free Beta
+                        </button>
+                    </div>
+                    <p class="text-sm mt-4 text-purple-200">Join 127+ businesses on our waitlist. Launching March 2026.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">The Review Problem</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6 hover-lift">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-times text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Customer Confusion</h3>
+                    <p class="text-gray-600">Multiple QR codes and links overwhelm customers. 80% bounce without leaving a review.</p>
+                </div>
+                <div class="text-center p-6 hover-lift">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star-half-alt text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Negative Reviews Public</h3>
+                    <p class="text-gray-600">Unhappy customers leave 1-star reviews instead of giving private feedback first.</p>
+                </div>
+                <div class="text-center p-6 hover-lift">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">No Analytics</h3>
+                    <p class="text-gray-600">You can't track how many customers scan vs actually review. Flying blind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="features" class="bg-gray-50 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">How ReviewFlow Solves It</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-qrcode text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">One QR Code, All Platforms</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Generate a single QR code that shows Google, Facebook, Yelp, Trustpilot, and more. Customers choose their preferred platform.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Scan-to-review in 30 seconds</span></li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Mobile-optimized landing page</span></li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Customizable platform selection</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="bg-white inline-block p-8 rounded-2xl shadow-xl">
+                        <div class="text-6xl mb-4">📱</div>
+                        <div class="text-4xl mb-2">→</div>
+                        <div class="grid grid-cols-3 gap-2 mx-auto max-w-xs">
+                            <div class="bg-blue-100 p-3 rounded-lg"><i class="fab fa-google text-blue-600"></i></div>
+                            <div class="bg-blue-100 p-3 rounded-lg"><i class="fab fa-facebook text-blue-600"></i></div>
+                            <div class="bg-blue-100 p-3 rounded-lg"><i class="fab fa-yelp text-red-600"></i></div>
+                            <div class="bg-blue-100 p-3 rounded-lg">Trustpilot</div>
+                            <div class="bg-blue-100 p-3 rounded-lg">TripAdvisor</div>
+                            <div class="bg-blue-100 p-3 rounded-lg">+ More</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <div class="bg-white inline-block p-8 rounded-2xl shadow-xl">
+                        <div class="text-6xl mb-4">😠 → 📧</div>
+                        <h3 class="text-xl font-bold mb-2">Smart Feedback Routing</h3>
+                        <p class="text-gray-600">Unhappy customers are routed to private feedback instead of public 1-star reviews.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover-lift">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-green-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-chart-bar text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Complete Analytics Dashboard</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Track scans, completions, platform preferences, and sentiment in real-time.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Scan-to-review conversion rates</span></li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Platform performance comparison</span></li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Email/SMS reminder analytics</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-4">Simple, Transparent Pricing</h2>
+            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Start free, upgrade as you grow. No hidden fees.</p>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="bg-gray-50 p-8 rounded-2xl border-2 border-gray-200 hover-lift">
+                    <h3 class="text-xl font-bold mb-2">Free</h3>
+                    <div class="text-3xl font-bold mb-4">$0<span class="text-gray-500 text-lg">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>1 business location</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>100 scans/month</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Basic analytics</span></li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-times mr-2"></i> <span>Email reminders</span></li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-times mr-2"></i> <span>White-label</span></li>
+                    </ul>
+                    <button class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 rounded-lg transition duration-150 ease-in-out">
+                        Start Free
+                    </button>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl border-2 border-purple-500 shadow-xl hover-lift relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold">MOST POPULAR</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Pro</h3>
+                    <div class="text-3xl font-bold mb-4">$19<span class="text-gray-500 text-lg">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>5 business locations</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Unlimited scans</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Advanced analytics</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Email reminders</span></li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-times mr-2"></i> <span>White-label</span></li>
+                    </ul>
+                    <button class="w-full gradient-bg hover:opacity-90 text-white font-bold py-3 rounded-lg transition duration-150 ease-in-out">
+                        Join Waitlist
+                    </button>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl border-2 border-gray-200 hover-lift">
+                    <h3 class="text-xl font-bold mb-2">Business</h3>
+                    <div class="text-3xl font-bold mb-4">$49<span class="text-gray-500 text-lg">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>20 business locations</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Unlimited scans</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Advanced analytics</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Email + SMS reminders</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>White-label</span></li>
+                    </ul>
+                    <button class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 rounded-lg transition duration-150 ease-in-out">
+                        Join Waitlist
+                    </button>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-2xl border-2 border-gray-200 hover-lift">
+                    <h3 class="text-xl font-bold mb-2">Agency</h3>
+                    <div class="text-3xl font-bold mb-4">$199<span class="text-gray-500 text-lg">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>100 business locations</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Unlimited everything</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Reseller rights</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>API access</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> <span>Priority support</span></li>
+                    </ul>
+                    <button class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 rounded-lg transition duration-150 ease-in-out">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist CTA -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Join 127+ Businesses on Our Waitlist</h2>
+            <p class="text-xl mb-10 text-purple-100">Be among the first to transform your review management. Launching March 2026.</p>
+            
+            <div class="max-w-md mx-auto bg-white rounded-2xl p-8 shadow-2xl">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Get Early Access</h3>
+                <p class="text-gray-600 mb-6">Early adopters get 50% off for first 6 months + lifetime feature requests priority.</p>
+                
+                <div class="space-y-4">
+                    <input type="email" id="waitlist-email" placeholder="Business email address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900">
+                    <input type="text" id="business-name" placeholder="Business name (optional)" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900">
+                    <select id="business-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900">
+                        <option value="">Type of business</option>
+                        <option value="restaurant">Restaurant/Cafe</option>
+                        <option value="retail">Retail Store</option>
+                        <option value="service">Local Service</option>
+                        <option value="medical">Medical Practice</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <button id="final-join-btn" class="w-full gradient-bg hover:opacity-90 text-white font-bold py-3 rounded-lg transition duration-150 ease-in-out">
+                        Join Free Beta
+                    </button>
+                </div>
+                
+                <p class="text-sm text-gray-500 mt-4">No credit card required. We'll notify you when we launch.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-qrcode text-2xl text-purple-400 mr-2"></i>
+                        <span class="text-xl font-bold">ReviewFlow</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">Get more reviews with one simple QR code.</p>
+                </div>
+                <div class="text-gray-400">
+                    <p>© 2026 ReviewFlow. All rights reserved.</p>
+                    <p class="mt-2">Part of the Micro-SaaS Pipeline Project</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const waitlistBtn = document.getElementById('waitlist-btn');
+            const joinBtn = document.getElementById('join-btn');
+            const finalJoinBtn = document.getElementById('final-join-btn');
+            const emailInput = document.getElementById('email-input');
+            const waitlistEmail = document.getElementById('waitlist-email');
+            
+            function joinWaitlist(email) {
+                if (!email || !email.includes('@')) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+                
+                // In a real app, this would send to a backend
+                console.log('Joining waitlist with email:', email);
+                
+                // Show success message
+                alert('🎉 Thanks for joining! We\'ll notify you when we launch. Check your email for confirmation.');
+                
+                // Clear inputs
+                if (emailInput) emailInput.value = '';
+                if (waitlistEmail) waitlistEmail.value = '';
+            }
+            
+            if (waitlistBtn) {
+                waitlistBtn.addEventListener('click', () => {
+                    document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+            
+            if (joinBtn) {
+                joinBtn.addEventListener('click', () => {
+                    const email = emailInput ? emailInput.value : '';
+                    joinWaitlist(email);
+                });
+            }
+            
+            if (finalJoinBtn) {
+                finalJoinBtn.addEventListener('click', () => {
+                    const email = waitlistEmail ? waitlistEmail.value : '';
+                    joinWaitlist(email);
+                });
+            }
+            
+            // Allow Enter key to submit
+            const inputs = [emailInput, waitlistEmail];
+            inputs.forEach(input => {
+                if (input) {
+                    input.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            joinWaitlist(input.value);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
