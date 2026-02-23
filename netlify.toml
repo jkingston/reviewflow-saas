@@ -7,6 +7,7 @@
   to = "/landing-page.html"
   status = 200
 
+# Form handling configuration
 [[headers]]
   for = "/*"
   [headers.values]
@@ -15,13 +16,53 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# SEO headers
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Link = "</landing-page.html>; rel=canonical"
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'"
+
 [build.environment]
   NODE_VERSION = "18"
 
-# Form handling for waitlist
-[[context.production.environment]]
-  NETLIFY_FORMS = "true"
+# Enable Netlify forms
+[build.processing]
+  skip_processing = true
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
 
 # Basic settings
 [build.settings]
   PROCESSING = "image_optim,html_minify"
+
+# Analytics (basic Netlify analytics)
+[analytics]
+  simple = true
+
+# Form spam filtering
+[[context.production.environment]]
+  NETLIFY_FORMS = "true"
+
+# SEO configuration
+[context.production]
+  [context.production.environment]
+    GOOGLE_SITE_VERIFICATION = ""
+
+# Development context
+[context.deploy-preview]
+  [context.deploy-preview.environment]
+    HUGO_VERSION = "0.58.3"
+
+[context.branch-deploy]
+  [context.branch-deploy.environment]
+    HUGO_VERSION = "0.58.3"
